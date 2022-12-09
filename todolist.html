@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #38598B;
+            padding-bottom: 48%;
+        }
+
+        .container ul {
+            margin-left: 280px;
+        }
+
+        .container ul li {
+            list-style: none;
+        }
+
+        .judul {
+            background-color: #2A2B5F;
+            color: #F1F1F6;
+            text-align: center;
+        }
+
+        .input {
+            background-color: #3DC4D0;
+            text-align: center;
+            padding-bottom: 2%;
+        }
+
+        .input input {
+            width: 50%;
+            height: 30px;
+            margin-top: 2%;
+            border: 2px;
+            border-radius: 10px;
+        }
+
+        .input button {
+            height: 30px;
+            border: 2px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="judul">
+            <h1>To Do List</h1>
+        </div>
+            <form class="input">
+                <input class="inp" type="text"/>
+                <button type="submit">Tambah</button>
+            </form>
+            <ul></ul>
+        </div>
+    <script>
+      let arul = document.querySelector('form')
+      arul.addEventListener("submit", function (e) {
+        e.preventDefault();
+        let azimi = document.querySelector("input").value;
+        if (azimi == "") {
+            alert("apam");
+        } else {
+            amir(azimi);
+        }
+        document.querySelector("input").value = "";
+      });
+
+      function amir(azimi) {
+        let al = document.createElement('li');
+        al.textContent = azimi;
+
+        const ari = document.createElement('button');
+        ari.textContent = 'hapus';
+        ari.addEventListener('click', function() {
+            deltodo(this);
+        });
+        al.appendChild(ari);
+
+        al.addEventListener("click", function (){
+            if (al.style.textDecoration == "line-through"){
+                al.style.textDecoration = "none";
+            }else{
+                al.style.textDecoration = "line-through";
+            }
+        });
+
+        let intan = document.querySelector('ul');
+        intan.appendChild(al);
+        function deltodo (todo) {
+            const li = todo.parentNode;
+            li.remove();
+        }
+      }
+    </script>
+</body>
+</html>
